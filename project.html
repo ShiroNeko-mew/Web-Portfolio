@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>My Quizzes</title>
+  <style>
+   *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F7CFD8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInBody 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #8E7DBE;
+      animation: slideDown 1s ease-out forwards;
+      transform: translateY(-100%);
+    }
+   
+    @media (max-width: 1024px) {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+      }
+
+      li {
+        margin: 0 10px;
+      }
+
+      .content {
+        padding: 40px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+
+      .footer a {
+        font-size: 1.3rem;
+      }
+
+      .profile-img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .profile-info h1 {
+        font-size: 1.7rem;
+      }
+
+      .profile-info p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        width: 100%;
+      }
+
+      li {
+        margin: 0 5px;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+
+      .footer a {
+        font-size: 1.1rem;
+      }
+
+      .profile-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .profile-info h1 {
+        font-size: 1.5rem;
+      }
+
+      .profile-info p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        width: 100%;
+      }
+
+      .profile-info h1 {
+        font-size: 1.3rem;
+      }
+
+      .profile-info p {
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .footer a {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 320px) {
+  ul {
+    padding: 5px; 
+  }
+
+  li {
+    flex: 0 0 auto; 
+    margin: 0 4px;   
+  }
+
+  li a {
+    font-size: 0.7rem;
+    padding: 6px 10px; 
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.1rem;
+  }
+
+  .profile-info p {
+    font-size: 0.85rem;
+  }
+
+  .footer a {
+    font-size: 1rem;
+  }
+}
+
+
+    @media (min-width: 1200px) {
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+        width: 100%;
+      }
+
+      li {
+        float: none;
+      }
+
+      .content {
+        height: 100vh;
+      }
+
+      .profile-img {
+        width: 300px;
+        height: 300px;
+      }
+
+      .profile-info h1 {
+        font-size: 2.5rem;
+      }
+
+      .profile-info p {
+        font-size: 1.5rem;
+        max-width: 1000px;
+      }
+    }
+
+    @keyframes slideDown {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    li {
+      float: right;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #A6D6D6;
+    }
+
+    .container2 {
+      border-radius: 30px;
+      margin: 25px auto;
+      max-width: 1200px;
+      padding: 40px;
+      text-align: center;
+      animation: zoomFadeIn 1.5s ease forwards;
+    }
+
+    @keyframes zoomFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.flex-container > div {
+  background-color: #fff;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 1.2s ease-in-out forwards;
+}
+
+.flex-container > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+  background-color: #fef9f2;
+}
+
+.flex-container img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.flex-container h2 {
+  font-size: 1.25rem;
+  color: #8E7DBE;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.flex-container hr {
+  width: 80%;
+  border: none;
+  height: 2px;
+  background-color: #8E7DBE;
+  margin: 10px 0;
+}
+
+.flex-container p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  text-align: justify;
+}
+
+.lang-used {
+  margin-top: 10px;
+  color: #8E7DBE;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.quiz-meta {
+  font-size: 0.85rem;
+  color: #8E7DBE;
+  margin-top: 10px;
+}
+
+
+    h1 {
+      margin-top: 1px;
+      margin-bottom: 5px;
+      color: #8E7DBE;
+    }
+
+    h2 {
+      color: black;
+    }
+
+    .lang-used {
+      color: #8E7DBE;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    hr {
+      width: 300px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      border: 1px solid #8E7DBE;
+    }
+
+    .head {
+      width: 200px;
+    }
+
+    .footer {
+      background-color: #8E7DBE;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      margin-top: 40px;
+      animation: fadeUp 1.5s ease-in-out forwards;
+    }
+
+    .footer a {
+      color: #F7CFD8;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    .footer a:hover {
+      color: #A6D6D6;
+    }
+
+    .footcont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footcont p {
+      margin: 5px 0;
+    }
+
+    .footcont i {
+      margin-right: 10px;
+    }
+
+    .footer p:last-child {
+      margin-top: 15px;
+    }
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .footer a {
+    font-size: 1.2rem;
+  }
+
+  .footcont {
+    padding: 0 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    font-size: 0.85rem;
+    padding: 12px 8px;
+  }
+
+  .footer a {
+    font-size: 1.1rem;
+    margin: 0 6px;
+  }
+
+  .footcont p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px 5px;
+  }
+
+  .footer a {
+    font-size: 1rem;
+    margin: 0 5px;
+  }
+
+  .footcont p {
+    font-size: 0.85rem;
+  }
+}
+.hyperl{
+  margin: 3px;
+  color: tomato;
+  font-size: small;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 7px;
+}
+.linkbox{
+  border-radius: 20px;
+  background-color: #F7CFD8;
+  height: 30px;
+  width: 70px;
+  padding-top: 1%;
+}
+
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li><a href="index.html">Home <i class="fa-solid fa-house-user"></i></a></li>
+    <li><a href="project.html">Project <i class="fa-solid fa-briefcase"></i></a></li>
+    <li><a href="quizzes.html">Quiz <i class="fa-solid fa-pen"></i></a></li>
+    <li><a href="about.html">About <i class="fa-solid fa-circle-info"></i></a></li>
+  </ul>
+
+  <div class="container2">
+    <h1>PROJECTS</h1>
+    <hr class="head" />
+
+    <div class="flex-container">
+      <div>
+        <h2>HUNTER X HUNTER FANDOM</h2>
+        <hr />
+        <img src="image/hunter.avif" alt="hunter fandom" />
+        <p>A fan-made website dedicated to Hunter x Hunter, featuring detailed character profiles, story arcs, Nen abilities, and lore. Designed for fans to dive deeper into the world of the anime.</p>
+        <p class="lang-used">Technologies Used: [HTML, CSS, JavaScript]</p>
+        <p class="linkbox"><a class="hyperl" href="">Visit Here</a></p>
+        <p class="quiz-meta"><i class="fa-regular fa-calendar"></i> Date of Completion: <strong>April 18, 2025</strong></p>
+      </div>
+      
+      <div>
+        <h2>GYM BRO</h2>
+        <hr />
+        <img src="image/gymbro.jpg" alt="gym bro" />
+        <p>A mobile fitness app offering exercise tutorials, workout tracking, meal plans, and an in-app store for gym essentials and supplements. Designed for gym-goers of all levels.</p>
+        <p class="lang-used">Technologies Used: [Xamarin, C#, Firebase]</p>
+        <p class="linkbox"><a class="hyperl" href="">Visit Here</a></p>
+        <p class="quiz-meta"><i class="fa-regular fa-calendar"></i> Date of Completion: <strong>April 18, 2025</strong></p>
+      </div>
+      
+      <div>
+        <h2>GENSHIN WIKI</h2>
+        <hr />
+        <img src="image/genshinnnnn.png" alt="genshin wiki" />
+        <p>A fully-featured Genshin Impact wiki packed with game mechanics, character guides, enemy stats, lore breakdowns, and region exploration. Built for fans and theorycrafters alike.</p>
+        <p class="lang-used">Technologies Used: [HTML, CSS, JavaScript]</p>
+        <p class="linkbox"><a class="hyperl" href="C:\Users\Prince\MyWebPortfolio\wetransfer_index-html_2025-03-18_1125\index.html">Visit Here</a></p>
+        <p class="quiz-meta"><i class="fa-regular fa-calendar"></i> Date of Completion: <strong>April 18, 2025</strong></p>
+      </div>
+      
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footcont">
+      <p><i class="fa-regular fa-envelope"></i> Contact me: <a href="mailto:princeandrew12309@gmail.com">princeandrew12309@gmail.com</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Address: Dasmariñas, Cavite</p>
+      <p>
+        <a href="https://web.facebook.com/Princeandrew.012" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/princenipaya?igsh=ZnJvejk0dDdhN3M=" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@yatogamiiiiiiiiiiii?_t=ZS-8vvspkiJUUZ&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </p>
+      <p>&copy; 2025 Prince Andrew Nipaya. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

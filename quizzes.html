@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>My Quizzes</title>
+  <style>
+   *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F7CFD8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInBody 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #8E7DBE;
+      animation: slideDown 1s ease-out forwards;
+      transform: translateY(-100%);
+    }
+    
+   @media (max-width: 1024px) {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+      }
+
+      li {
+        margin: 0 10px;
+      }
+
+      .content {
+        padding: 40px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+
+      .footer a {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        width: 100%;
+      }
+
+      li {
+        margin: 0 5px;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+
+      .footer a {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        width: 100%;
+      }
+      .footer {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .footer a {
+        font-size: 1.1rem;
+      }
+    }
+    @media (max-width: 320px) {
+  ul {
+    padding: 5px; 
+  }
+
+  li {
+    flex: 0 0 auto; 
+    margin: 0 4px; 
+  }
+
+  li a {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.1rem;
+  }
+
+  .profile-info p {
+    font-size: 0.85rem;
+  }
+
+  .footer a {
+    font-size: 1rem;
+  }
+}
+
+    @media (min-width: 1200px) {
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+        width: 100%;
+      }
+
+      li {
+        float: none;
+      }
+    }
+
+    @keyframes slideDown {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    li {
+      float: right;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #A6D6D6;
+    }
+
+    .container2 {
+      border-radius: 30px;
+      margin: 25px auto;
+      max-width: 1200px;
+      padding: 40px;
+      text-align: center;
+      animation: zoomFadeIn 1.5s ease forwards;
+    }
+
+    @keyframes zoomFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .flex-container {
+      background-color: whitesmoke;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      border: 5px solid #FEF9F2;
+    border-radius: 30px;
+    margin: 25px auto;
+    max-width: 1700px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    }
+    
+
+    .flex-container > div {
+      background-color: white;
+      width: 300px;
+      height: 500px;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      animation: fadeUp 1.5s ease-in-out forwards;
+    }
+
+    .flex-container > div:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .flex-container img {
+      width: 100%;
+      height: 300px;
+      object-fit: fill;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .flex-container .pretestpic{
+      width: 100%;
+      height: 200px;
+      object-fit: fill;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    
+    .flex-container h4
+    {
+      color: #8E7DBE;
+      margin: 10px 0 0;
+    }
+    h2{
+      margin: 10px 0 0;
+      color: black;
+    }
+    h1{
+      
+      margin-top: 5px;
+      margin-bottom: 50px;
+      color: #8E7DBE;
+    }
+
+    hr {
+      width: 300px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      border: 1px solid #8E7DBE;
+    }
+    .head{
+    width: 200px;
+
+    border: 1px solid #8E7DBE;
+  }
+
+    .hobby-icon {
+      font-size: 1.5rem;
+      color: #8E7DBE;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quiz-meta {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      background-color: #8E7DBE;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      margin-top: 40px;
+      animation: fadeUp 1.5s ease-in-out forwards;
+    }
+
+    .footer a {
+      color: #F7CFD8;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    .footer a:hover {
+      color: #A6D6D6;
+    }
+
+    .footcont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footcont p {
+      margin: 5px 0;
+    }
+
+    .footcont i {
+      margin-right: 10px;
+    }
+
+    .footer p:last-child {
+      margin-top: 15px;
+    }
+
+    @media (max-width: 320px) {
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px 5px;
+  }
+
+  .footer a {
+    font-size: 1rem;
+    margin: 0 5px;
+  }
+
+  .footcont p {
+    font-size: 0.85rem;
+  }
+
+}
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li><a href="index.html">Home <i class="fa-solid fa-house-user"></i></a></li>
+    <li><a href="project.html">Project <i class="fa-solid fa-briefcase"></i></a></li>
+    <li><a href="quizzes.html">Quiz <i class="fa-solid fa-pen"></i></a></li>
+    <li><a href="about.html">About <i class="fa-solid fa-circle-info"></i></a></li>
+  </ul>
+
+  <div class="container2">
+    <h1>PRE TEST</h1>
+    <hr class="head">
+
+    <div class="flex-container">
+      <div>
+        <h2>PRE TEST #1</h2>
+        <hr />
+        <img class="pretestpic" src="image/hcii.jpg" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>March 26, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>N/A</strong></p>
+      </div>
+
+      <div>
+        <h2>PRE TEST #2</h2>
+        <hr />
+        <img class="pretestpic" src="image/PRETEST2.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>March 26, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>7/15</strong></p>
+      </div>
+
+      <div>
+        <h2>PRE TEST #3</h2>
+        <hr />
+        <img class="pretestpic" src="image/PRETEST3.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>March 26, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>12/15</strong></p>
+      </div>
+
+      <div>
+        <h2>PRE TEST #4</h2>
+        <hr />
+        <img class="pretestpic" src="image/PRETEST4.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>March 26, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>11/15</strong></p>
+      </div>
+
+      <div>
+        <h2>PRE TEST #5</h2>
+        <hr />
+        <img class="pretestpic" src="image/PRETEST5.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>March 26, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>18/20</strong></p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container2">
+    <h1>POST TEST</h1>
+    <hr class="head">
+
+    <div class="flex-container">
+      <div>
+        <h2>POST TEST #1</h2>
+        <hr />
+        <img src="image/POST TEST1.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+
+      <div>
+        <h2>POST TEST #2</h2>
+        <hr />
+        <img src="image/POST TEST2.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+      <div>
+        <h2>POST TEST #3</h2>
+        <hr />
+        <img src="image/POST TEST3.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+      <div>
+        <h2>POST TEST #4</h2>
+        <hr />
+        <img src="image/POST TEST4.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+      <div>
+        <h2>POST TEST #5</h2>
+        <hr />
+        <img src="image/POST TEST5.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container2">
+    <h1>LONG QUIZ</h1>
+    <hr class="head">
+
+    <div class="flex-container">
+      <div>
+        <h2>LONG QUIZ #1</h2>
+        <hr />
+        <img src="image/LONGQUIZ.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container2">
+    <h1>EXAM</h1>
+    <hr class="head">
+
+    <div class="flex-container">
+      <div>
+        <h2>MIDTERM</h2>
+        <hr />
+        <img src="image/MIDTERM.png" alt="hci picture" />
+        <p class="hobby-icon"><i class="fa-solid fa-book"></i></p>
+        <p class="quiz-meta"> <i class="fa-regular fa-calendar"></i> Date Taken: <strong>April 18, 2025</strong></p>
+        <p class="quiz-meta">Score: <strong>20/20</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footcont">
+      <p><i class="fa-regular fa-envelope"></i> Contact me: <a href="mailto:princeandrew12309@gmail.com">princeandrew12309@gmail.com</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Address: Dasmariñas, Cavite</p>
+      <p>
+        <a href="https://web.facebook.com/Princeandrew.012" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/princenipaya?igsh=ZnJvejk0dDdhN3M=" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@yatogamiiiiiiiiiiii?_t=ZS-8vvspkiJUUZ&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </p>
+      <p>&copy; 2025 Prince Andrew Nipaya. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

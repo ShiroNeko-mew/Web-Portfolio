@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Portfolio</title>
+  <style>
+ *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F7CFD8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInBody 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8E7DBE;
+    animation: slideDown 1s ease-out forwards;
+    transform: translateY(-100%);
+  }
+
+  @keyframes slideDown {
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+   @media (max-width: 1024px) {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+      }
+
+      li {
+        margin: 0 10px;
+      }
+
+      .content {
+        padding: 40px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+
+      .footer a {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        width: 100%;
+      }
+
+      li {
+        margin: 0 5px;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+
+      .footer a {
+        font-size: 1.2rem;
+      }
+    }
+    
+
+    @media (max-width: 480px) {
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        width: 100%;
+      }
+      .footer {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .footer a {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+        width: 100%;
+      }
+
+      li {
+        float: none;
+      }
+    }
+    @media (max-width: 320px) {
+  ul {
+    padding: 5px; 
+  }
+
+  li {
+    flex: 0 0 auto; 
+    margin: 0 4px; 
+  }
+
+  li a {
+    font-size: 0.7rem;
+    padding: 6px 10px; 
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.1rem;
+  }
+
+  .profile-info p {
+    font-size: 0.85rem;
+  }
+
+  .footer a {
+    font-size: 1rem;
+  }
+}
+
+  
+
+  li {
+    float: right;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #A6D6D6;
+  }
+
+  h1 {
+    margin-top: 25px;
+    color: #8E7DBE;
+    text-align: center;
+    animation: fadeUp 1.5s ease-in-out;
+  }
+
+  hr {
+    width: 250px;
+    margin: 10px auto 30px;
+    border: 1px solid #8E7DBE;
+  }
+
+  .container {
+    border: 5px solid #FEF9F2;
+    border-radius: 30px;
+    margin: 25px auto;
+    max-width: 1000px;
+    background-color: #FEF9F2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: zoomFadeIn 1.5s ease forwards;
+  }
+
+  @keyframes zoomFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .profpic {
+    border: 5px solid  #8E7DBE;
+    border-radius: 50%;
+    width: 275px;
+    height: 275px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: #8E7DBE;
+    margin-bottom: 20px;
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  .container2 {
+    border: 5px solid #FEF9F2;
+    border-radius: 30px;
+    margin: 25px auto;
+    max-width: 1200px;
+    background-color: #FEF9F2;
+    padding: 40px;
+    text-align: center;
+    animation: fadeUp 1.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .flex-container > div {
+  background-color: white;
+  width: 225px;
+  height: 270px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease; 
+  }
+.flex-container > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+
+
+  @keyframes cardFade {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .flex-container > div:nth-child(1) { --i: 1; }
+  .flex-container > div:nth-child(2) { --i: 2; }
+  .flex-container > div:nth-child(3) { --i: 3; }
+  .flex-container > div:nth-child(4) { --i: 4; }
+  .flex-container > div:nth-child(5) { --i: 5; }
+  .flex-container > div:nth-child(6) { --i: 6; }
+  .flex-container > div:nth-child(7) { --i: 7; }
+  .flex-container > div:nth-child(8) { --i: 8; }
+
+  .flex-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .flex-container h4 {
+    margin: 10px 0 0;
+    color: #8E7DBE;
+    font-size: 1rem;
+  }
+
+  .rating {
+    font-size: 1rem;
+    color: #f5a623; 
+    margin: 5px 0;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+  .rating-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hobby-icon {
+  font-size: 1.5rem;
+  color: #8E7DBE; 
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+  .footer {
+    background-color: #8E7DBE;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: 40px;
+    animation: fadeUp 1.5s ease-in-out forwards;
+  }
+
+  .footer a {
+    color: #F7CFD8;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .footer a:hover {
+    color: #A6D6D6;
+  }
+
+  .footer .footcont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer .footcont p {
+    margin: 5px 0;
+  }
+
+  .footer .footcont i {
+    margin-right: 10px;
+  }
+
+  .footer .footcont a {
+    margin: 0 15px;
+  }
+
+  .footer p:last-child {
+    margin-top: 15px;
+  }
+  
+@media (max-width: 320px) {
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px 5px;
+  }
+
+  .footer a {
+    font-size: 1rem;
+    margin: 0 5px;
+  }
+
+  .footcont p {
+    font-size: 0.85rem;
+  }
+}
+
+</style>
+
+
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li><a href="index.html">Home <i class="fa-solid fa-house-user"></i></a></li>
+    <li><a href="project.html">Project <i class="fa-solid fa-briefcase"></i></a></li>
+    <li><a href="quizzes.html">Quiz <i class="fa-solid fa-pen"></i></a></li>
+    <li><a href="about.html">About <i class="fa-solid fa-circle-info"></i></a></li>
+  </ul>
+
+
+  <h1>INFO ABOUT ME</h1>
+  <hr />
+  <div class="container">
+    <img src="image/princeprofile.jpg" alt="Profile Picture" class="profpic" />
+    <h2>IT STUDENT | AIM TO BE A WEB DEVELOPER</h2>
+    <p class="intro">
+      I'm a student currently studying Information Technology.
+      I'm still at the beginning of my journey, but I'm really excited to learn more
+      about computers, coding, and how technology works. I enjoy exploring new ideas,
+      working on small projects, and improving my skills little by little. This portfolio
+      shows some of the things I’ve done so far and what I’m learning as I grow in the IT field.
+    </p>
+  </div>
+
+
+  <div class="container2">
+    <h1>MY HOBBIES</h1>
+    <div class="flex-container">
+      <div>
+        <img src="image/wuwaa.jpg" alt="Wuthering Waves" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          100%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-gamepad"></i></p>
+        <h4>Wuthering Waves</h4>
+      </div>
+      <div>
+        <img src="image/honki.jpg" alt="Hobby 5" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          90%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-gamepad"></i></p>
+        <h4>Honkai Star Rail</h4>
+      </div>
+      <div>
+        <img src="image/valorant.jpg" alt="Hobby 5" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <i class="fa-regular fa-star"></i>
+          70%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-gamepad"></i></p>
+        <h4>Valorant</h4>
+      </div>
+      <div>
+        <img src="image/gen.avif" alt="Hobby 4" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          90%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-gamepad"></i></p>
+        <h4>Genshin Impact</h4>
+      </div>
+      <div>
+        <img src="image/sao.webp" alt="Hobby 2" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          100%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-tv"></i></i></p>
+        <h4>Watch Anime</h4> 
+      </div>
+      
+      <div>
+        <img src="image/bochi.jpg" alt="Hobby 5" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          90%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-guitar"></i></p>
+        <h4>Playing Guitar</h4>
+      </div>
+      <div>
+        <img src="image/tune.webp" alt="Hobby 3" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          100%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-book-open"></i></p>
+        <h4>Read Manga</h4>
+      </div>
+      <div>
+        <img src="image/spotify.jpg" alt="Hobby 5" />
+        <p class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          90%
+        </p>
+        <p class="hobby-icon"><i class="fa-solid fa-music"></i></p>
+        <h4>Listen to Music</h4>
+      </div>
+
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footcont">
+      <p><i class="fa-regular fa-envelope"></i></i> Contact me: <a href="mailto:princeandrew12309@gmail.com">princeandrew12309@gmail.com</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Address: Dasmariñas, Cavite</p>
+      <p>
+        <a href="https://web.facebook.com/Princeandrew.012" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/princenipaya?igsh=ZnJvejk0dDdhN3M=" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@yatogamiiiiiiiiiiii?_t=ZS-8vvspkiJUUZ&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </p>
+      <p>&copy; 2025 Prince Andrew Nipaya. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  
+
+</body>
+</html>
