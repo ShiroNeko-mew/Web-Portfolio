@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Prince Nipaya - Home</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F7CFD8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInBody 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      to {
+        opacity: 1;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #8E7DBE;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: slideDown 1s ease-out forwards;
+      transform: translateY(-100%);
+    }
+
+    @keyframes slideDown {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    li {
+      margin: 0 10px;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #A6D6D6;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: auto;
+      min-height: 80vh;
+      padding: 30px 15px;
+      opacity: 0;
+      animation: fadeInContent 2s 1s forwards;
+    }
+
+    .profile-img {
+      border: 5px solid #8E7DBE;
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      animation: zoomIn 2s ease-out 1 forwards, bounceLoop 2s ease-in-out 2s infinite;
+    }
+
+    @keyframes zoomIn {
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bounceLoop {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .profile-info h1 {
+      font-size: 2rem;
+      color: #8E7DBE;
+      margin: 10px 0;
+    }
+
+    .profile-info p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* Footer Section */
+    .footer {
+      background-color: #8E7DBE;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 1rem;
+      animation: fadeInFooter 2s 1.5s forwards;
+    }
+
+    .footer a {
+      color: #F7CFD8;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    .footer a:hover {
+      color: #A6D6D6;
+    }
+
+    .footcont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footcont p {
+      margin: 5px 0;
+    }
+
+    @keyframes fadeInFooter {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInContent {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+        width: 100%;
+      }
+
+      li {
+        float: none;
+      }
+    }
+
+ 
+
+    @media (max-width: 768px) {
+      .profile-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .profile-info h1 {
+        font-size: 1.6rem;
+      }
+
+      .profile-info p {
+        font-size: 1rem;
+      }
+
+      .footer a {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      li a {
+        font-size: 0.9rem;
+        padding: 5px;
+      }
+
+      .profile-img {
+        width: 160px;
+        height: 160px;
+      }
+
+      .profile-info h1 {
+        font-size: 1.3rem;
+      }
+
+      .profile-info p {
+        font-size: 0.95rem;
+      }
+
+      .footer {
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 320px) {
+  ul {
+    padding: 5px; 
+  }
+
+  li {
+    flex: 0 0 auto; 
+    margin: 0 4px;   
+  }
+
+  li a {
+    font-size: 0.7rem;
+    padding: 6px 10px; 
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.1rem;
+  }
+
+  .profile-info p {
+    font-size: 0.85rem;
+  }
+
+  .footer a {
+    font-size: 1rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li><a href="index.html">Home <i class="fa-solid fa-house-user"></i></a></li>
+    <li><a href="project.html">Project <i class="fa-solid fa-briefcase"></i></a></li>
+    <li><a href="quizzes.html">Quiz <i class="fa-solid fa-pen"></i></a></li>
+    <li><a href="about.html">About <i class="fa-solid fa-circle-info"></i></a></li>
+  </ul>
+
+  <div class="content">
+    <img src="image/princeprofile.jpg" alt="Profile Picture" class="profile-img">
+    <div class="profile-info">
+      <h1>Hello! I am Prince Nipaya</h1>
+      <p>BSIT 3-B from Cavite State University</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footcont">
+      <p><i class="fa-regular fa-envelope"></i> Contact me: 
+        <a href="mailto:princeandrew12309@gmail.com">princeandrew12309@gmail.com</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Address: Dasmariñas, Cavite</p>
+      <p>
+        <a href="https://web.facebook.com/Princeandrew.012" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/princenipaya?igsh=ZnJvejk0dDdhN3M=" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@yatogamiiiiiiiiiiii?_t=ZS-8vvspkiJUUZ&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </p>
+      <p>&copy; 2025 Prince Andrew Nipaya. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
